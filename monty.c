@@ -1,12 +1,11 @@
 #include "monty.h"
 #include <unistd.h>
 #include <stdio.h>
-
 /**
- * main - reads a line from a monty file
- * @ac: argument counter
- * @arv: argument vecture
- * Return: 0 in success and specified error value in failed
+ *open_file - this function open a file
+ *@str: parameter pointer
+ *@mod: parameter pointer
+ *Return: return pointer to file
  */
 FILE *open_file(char *str, char *mod)
 {
@@ -21,6 +20,11 @@ FILE *open_file(char *str, char *mod)
 	}
 	return (file_stream);
 }
+/**
+ *regular_errror - this function print regular error
+ *@count_line: parameter unsigned long
+ *@line: parameter pointer
+ */
 void regular_errror(unsigned int count_line, char *line)
 {
 	char *str_n_of_line = "10";
@@ -32,6 +36,10 @@ void regular_errror(unsigned int count_line, char *line)
 	write(2, line, strlen(line));
 	write(2, "\n", 2);
 }
+/**
+ *push_error - this function print an error
+ *@str_n_of_line: parameter string
+ */
 void push_error(char *str_n_of_line)
 {
 	write(2, "L",2);
@@ -39,11 +47,20 @@ void push_error(char *str_n_of_line)
 	write(2, ": usage: push integer\n",sizeof(": usage: push integer\n"));
 	exit(EXIT_FAILURE);
 }
+/**
+ *error_n_arguments - this function print an error
+ */
 void error_n_arguments()
 {
 	write(2, "USAGE: monty file\n",sizeof("USAGE: monty file\n"));
 	exit(EXIT_FAILURE);
 }
+/**
+ * main - reads a line from a monty file
+ * @ac: argument counter
+ * @arv: argument vecture
+ * Return: 0 in success and specified error value in failed
+ */
 int main(int ac, char **arv)
 {
 	unsigned int count_line = 0, i = 0;
