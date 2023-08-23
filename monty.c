@@ -18,10 +18,7 @@ int main(int ac, char **arv)
 	size_t size = 1024;
 
 	if (ac != 2)
-	{
-		write(2, "argument error", sizeof("argument error"));
 		exit(EXIT_FAILURE);
-	}
 	file = fopen(arv[1], "r");
 	if (!file)
 	{
@@ -48,6 +45,8 @@ int main(int ac, char **arv)
 		for (i = 0; i < 1024; i++)
 			buffer_file[i] = '\0';
 	}
+	while (top)
+		pop(&top);
 	fclose(file);
 	return (0);
 }
