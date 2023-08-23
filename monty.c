@@ -11,7 +11,7 @@
 
 int main(int ac, char **arv)
 {
-	unsigned int count_line = 0;
+	unsigned int count_line = 0, i = 0;
 	char *arg1 = NULL, *arg2 = NULL, buffer_file[1024];
 	FILE *file = NULL;
 	stack_t *top = NULL;
@@ -45,6 +45,8 @@ int main(int ac, char **arv)
 			exit(EXIT_FAILURE);
 		}
 		arg1 = NULL, arg2 = NULL;
+		for (i = 0; i < 1024; i++)
+			buffer_file[i] = '\0';
 	}
 	fclose(file);
 	return (0);
