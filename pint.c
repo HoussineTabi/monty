@@ -6,7 +6,18 @@
  */
 void pint(stack_t **top, unsigned int line_number)
 {
-	(void)line_number;
+	char str_number[20];
+
+	sprintf(str_number, "%u", line_number);
 	if (top && *top)
 		printf("%d\n", (*top)->n);
+	else
+	{
+		write(2, "L", strlen("L"));
+		write(2, str_number, strlen(str_number));
+		write(2, ": can't pint, stack empty", strlen(": can't pint, stack empty"));
+		while (*top)
+			pop(top, line_number);
+		exit(EXIT_FAILURE);
+	}
 }
