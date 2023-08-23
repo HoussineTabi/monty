@@ -41,8 +41,11 @@ void regular_errror(unsigned int count_line, char *line)
  *push_error - this function print an error
  *@str_n_of_line: parameter string
  */
-void push_error(char *str_n_of_line)
+void push_error(unsigned int count_line)
 {
+	char str_n_of_line[20];
+
+	sprintf(str_n_of_line, "%u", count_line);
 	write(2, "L", 2);
 	write(2, str_n_of_line, strlen(str_n_of_line));
 	write(2, ": usage: push integer\n", strlen(": usage: push integer\n"));
