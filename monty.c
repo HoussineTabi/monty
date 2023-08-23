@@ -30,7 +30,7 @@ int main(int ac, char **arv)
 	}
 	while (fgets(buffer_file, size, file) != NULL)
 	{
-		countline++;
+		count_line++;
 		if (buffer_file[0] == '\n')
 			continue;
 		arg1 = strtok(buffer_file, " \n");
