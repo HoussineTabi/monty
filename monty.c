@@ -46,7 +46,7 @@ void push_error(unsigned int count_line)
 	char str_n_of_line[20];
 
 	sprintf(str_n_of_line, "%u", count_line);
-	write(2, "L", 2);
+	write(2, "L", 1);
 	write(2, str_n_of_line, strlen(str_n_of_line));
 	write(2, ": usage: push integer\n", strlen(": usage: push integer\n"));
 	exit(EXIT_FAILURE);
