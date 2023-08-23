@@ -13,7 +13,9 @@ void push(stack_t **top, unsigned int line_number)
 	node = malloc(sizeof(stack_t));
 	if (!node)
 	{
-		perror(" ");
+		while (*top)
+			pop(top, line_number);
+		write(2, "Error: malloc failed\n", strlen("Error: malloc failed\n"));
 		exit(EXIT_FAILURE);
 	}
 	node->prev = NULL;
