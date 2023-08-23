@@ -12,10 +12,10 @@
 int main(int ac, char **arv)
 {
 	unsigned int count_line = 1;
-	char *arg1 = NULL, *arg2 = NULL, *buffer_file = NULL;
+	char *arg1 = NULL, *arg2 = NULL, buffer_file[1024];
 	FILE *file = NULL;
 	stack_t *top = NULL;
-	size_t size;
+	size_t size = 1024;
 
 	if (ac != 2)
 	{
@@ -29,7 +29,7 @@ int main(int ac, char **arv)
 		exit(EXIT_FAILURE);
 	}
 	count_line = 1;
-	while (getline(&buffer_file, &size, file) != -1)
+	while (fgets(buffer_file, size, file) != NULL)
 	{
 		if (strlen(buffer_file) == 1)
 		{
@@ -41,7 +41,6 @@ int main(int ac, char **arv)
 		if (!check_fun(&top, arg1, arg2, count_line))
 		{
 			perror("error in line");
-			free(buffer_file);
 			while (top)
 				pop(&top, count_line);
 			exit(EXIT_FAILURE);
