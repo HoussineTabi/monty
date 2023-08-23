@@ -27,8 +27,10 @@ FILE *open_file(char *str, char *mod)
  */
 void regular_errror(unsigned int count_line, char *line)
 {
-	char *str_n_of_line = "10";
 
+	char str_n_of_line[20];
+
+	sprintf(str_n_of_line, "%u", count_line);
 	(void)count_line;
 	write(2, "L", sizeof("L"));
 	write(2, str_n_of_line, strlen(str_n_of_line));
