@@ -41,4 +41,5 @@ void pop(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
 int check_fun(stack_t **, char *, char *, unsigned int);
 int _isdigit(char *);
+void push_error(unsigned int count_line);
 #endif /* MONTY_H */

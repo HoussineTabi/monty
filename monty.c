@@ -39,7 +39,7 @@ void regular_errror(unsigned int count_line, char *line)
 }
 /**
  *push_error - this function print an error
- *@str_n_of_line: parameter string
+ *@count_line: parameter string
  */
 void push_error(unsigned int count_line)
 {

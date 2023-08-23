@@ -33,7 +33,12 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 				return (0);
 			}
 			else if (arg2 == NULL || !_isdigit(arg2))
+			{
+				while (*top)
+					pop(top, line_number);
+				push_error(line_number);
 				break;
+			}
 			fun_table[i].f(top, line_number);
 			(*top)->n = atoi(arg2);
 			return (1);
