@@ -21,11 +21,8 @@ FILE *open_file(char *str, char *mod)
 	}
 	return (file_stream);
 }
-void regular_errror(unsigned int count_line, char *line)
+void regular_errror(char *str_n_of_line, char *line)
 {
-	char *str_n_of_line = "10";
-
-	(void)count_line;
 	write(2, "L", sizeof("L"));
 	write(2, str_n_of_line, strlen(str_n_of_line));
 	write(2, ": unknown instruction ", sizeof(": unknown instruction "));
@@ -66,7 +63,7 @@ int main(int ac, char **arv)
 		arg2 = strtok(NULL, " \n");
 		if (!check_fun(&top, arg1, arg2, count_line))
 		{
-			regular_errror(count_line, arg1);
+			perror("error in line");
 			while (top)
 				pop(&top, count_line);
 			exit(EXIT_FAILURE);
