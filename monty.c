@@ -46,7 +46,7 @@ int main(int ac, char **arv)
 			buffer_file[i] = '\0';
 	}
 	while (top)
-		pop(&top);
+		pop(&top, count_line);
 	fclose(file);
 	return (0);
 }
