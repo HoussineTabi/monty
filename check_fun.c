@@ -25,7 +25,7 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 		{
 			if (i >= 1)
 			{
-				if (arg2 == NULL || sizeof(arg2) == 0)
+				if (arg2 == NULL || strlen(arg2) == 0)
 				{
 					fun_table[i].f(top, line_number);
 					return (1);
