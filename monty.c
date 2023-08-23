@@ -42,17 +42,17 @@ void regular_errror(unsigned int count_line, char *line)
  */
 void push_error(char *str_n_of_line)
 {
-	write(2, "L",2);
+	write(2, "L", 2);
 	write(2, str_n_of_line, strlen(str_n_of_line));
-	write(2, ": usage: push integer\n",sizeof(": usage: push integer\n"));
+	write(2, ": usage: push integer\n", sizeof(": usage: push integer\n"));
 	exit(EXIT_FAILURE);
 }
 /**
  *error_n_arguments - this function print an error
  */
-void error_n_arguments()
+void error_n_arguments(void)
 {
-	write(2, "USAGE: monty file\n",sizeof("USAGE: monty file\n"));
+	write(2, "USAGE: monty file\n", sizeof("USAGE: monty file\n"));
 	exit(EXIT_FAILURE);
 }
 /**
