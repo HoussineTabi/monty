@@ -8,16 +8,17 @@
 void swap(stack_t **top, unsigned int line_number)
 {
 	stack_t *tmp = NULL;
-        char str_n_of_line[20];
+	char *str1 = ": can't swap, stack too short\n";
+	char str_n_of_line[20];
 
-        if (!top || *top == NULL || (*top)->next == NULL)
-        {
-                sprintf(str_n_of_line, "%u", line_number);
-                write(2, "L", strlen("L"));
-                write(2, str_n_of_line, strlen(str_n_of_line));
-                write(2, ": can't swap, stack too short\n", strlen(": can't swap, stack too short\n"));
-                exit(EXIT_FAILURE);
-        }
+	if (!top || *top == NULL || (*top)->next == NULL)
+	{
+		sprintf(str_n_of_line, "%u", line_number);
+		write(2, "L", strlen("L"));
+		write(2, str_n_of_line, strlen(str_n_of_line));
+		write(2, str1, strlen(str1));
+		exit(EXIT_FAILURE);
+	}
 	tmp = (*top)->next;
 	(*top)->next = (*top)->next->next;
 	tmp->next = *top;
