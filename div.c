@@ -12,13 +12,13 @@ void divs(stack_t **top, unsigned int line_number)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-	if ((*top)->next->n == 0)
+	if ((*top)->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 
-	(*top)->next->n = (*top)->n / (*top)->next->n;
+	(*top)->next->n = ((*top)->next->n) / ((*top)->n);
 	pop(top, line_number);
 }
