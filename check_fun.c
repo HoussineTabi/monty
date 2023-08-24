@@ -43,7 +43,7 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 			fun_table[i].f(top, line_number);
 			if (sign == -1 && arg2[0] == '-')
 				(*top)->n = -1 * atoi(arg2), sign = -1, arg2 = &arg2[1];
-			if (strlen(arg2) > 10)
+			if (strlen(arg2) >= 10)
 			{
 				push_error(line_number);
 			}
