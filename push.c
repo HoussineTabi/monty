@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * push - this function is push an element into a stack
  * @top: pointer to the top of the list
@@ -16,7 +15,7 @@ void push(stack_t **top, unsigned int line_number)
 		while (*top)
 			pop(top, line_number);
 		write(2, "Error: malloc failed\n", strlen("Error: malloc failed\n"));
-		fclose(fil.file);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	node->prev = NULL;

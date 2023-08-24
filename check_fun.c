@@ -11,13 +11,8 @@
 int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 {
 	instruction_t fun_table[] = {
-		{"push", push},
-		{"nop", nop},
-		{"pop", pop},
-		{"pall", pall},
-		{"pint", pint},
-		{"swap", swap},
-		{NULL, NULL}
+		{"push", push}, {"nop", nop}, {"pop", pop},
+		{"pall", pall}, {"pint", pint}, {"swap", swap}, {NULL, NULL}
 	};
 	int i, sign = 1;
 
@@ -36,7 +31,9 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 			}
 			else if (i == 1)
 				return (1);
-			else if (arg2 == NULL || !_isdigit(arg2 + 1) || (arg2[0] != '-' && (arg2[0] > '9') && (arg2[0] < '0')))
+			else if (arg2 == NULL || !_isdigit(arg2 + 1)
+				       || (arg2[0] != '-' && (arg2[0] > '9')
+					&& (arg2[0] < '0')))
 			{
 				while (*top)
 					pop(top, line_number);
@@ -46,16 +43,10 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 			if (sign == -1)
 				(*top)->n = -1 * atoi(arg2);
 			else
-			{
 				if (arg2[0] == '-')
-				{
-					sign = -1;
-					arg2 = &arg2[1];
-				}
-				(*top)->n = sign * atoi(arg2);
-			}
+				sign = -1, arg2 = &arg2[1];
+			(*top)->n = sign * atoi(arg2);
 			return (1);
-
 		}
 	}
 	return (0);

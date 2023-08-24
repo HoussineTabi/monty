@@ -1,6 +1,5 @@
 #include "monty.h"
-
-file_t fil = {NULL};
+FILE *file = NULL;
 /**
  *open_file - this function open a file
  *@str: parameter pointer
@@ -9,16 +8,16 @@ file_t fil = {NULL};
  */
 FILE *open_file(char *str, char *mod)
 {
-	FILE *file_stream = fopen(str, mod);
+	file = fopen(str, mod);
 
-	if (file_stream == NULL)
+	if (file == NULL)
 	{
 		write(2, "Error: Can't open file ", strlen("Error: Can't open file "));
 		write(2, str, strlen(str));
 		write(2, "\n", strlen("\n"));
 		exit(EXIT_FAILURE);
 	}
-	return (file_stream);
+	return (file);
 }
 /**
  *regular_errror - this function print regular error
@@ -69,14 +68,12 @@ int main(int ac, char **arv)
 {
 	unsigned int count_line = 0, i = 0;
 	char *arg1 = NULL, *arg2 = NULL, buffer_file[1024];
-	FILE *file = NULL;
 	stack_t *top = NULL;
 	size_t size = 1024;
 
 	if (ac != 2)
 		error_n_arguments();
 	file = open_file(arv[1], "r");
-	fil.file = file;
 	while (fgets(buffer_file, size, file) != NULL)
 	{
 		count_line++;

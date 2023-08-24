@@ -17,7 +17,7 @@ void swap(stack_t **top, unsigned int line_number)
 		write(2, "L", strlen("L"));
 		write(2, str_n_of_line, strlen(str_n_of_line));
 		write(2, str1, strlen(str1));
-		fclose(fil.file);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*top)->next;

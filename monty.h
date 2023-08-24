@@ -35,16 +35,6 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-/**
- * struct file_s - variables file
- * @file: pointer to monty file
- * Description: carries values through the program
- */
-typedef struct file_s
-{
-	FILE *file;
-}  file_t;
-extern file_t fil;
 
 void pint(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
@@ -55,5 +45,5 @@ int _isdigit(char *);
 void push_error(unsigned int count_line);
 void swap(stack_t **top, unsigned int line_number);
 void nop(stack_t **top, unsigned int line_number);
-
+extern FILE *file;
 #endif /* MONTY_H */
