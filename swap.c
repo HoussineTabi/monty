@@ -12,7 +12,7 @@ void swap(stack_t **top, unsigned int line_number)
 	if (!top || *top == NULL || (*top)->next == NULL)
 	{
 
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
