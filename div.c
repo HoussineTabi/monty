@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * div - adds the two top elements of the stackc
+ * divs - division the two top elements of the stackc
  * @top: the top of the stack
  * @line_number: the line number in the monty file
  */
@@ -12,7 +12,7 @@ void divs(stack_t **top, unsigned int line_number)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-	if ((*top)->next == 0)
+	if ((*top)->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		fclose(file);
