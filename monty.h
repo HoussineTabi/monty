@@ -46,4 +46,5 @@ void push_error(unsigned int count_line);
 void swap(stack_t **top, unsigned int line_number);
 void nop(stack_t **top, unsigned int line_number);
 extern FILE *file;
+void add(stack_t **, unsigned int);
 #endif /* MONTY_H */
