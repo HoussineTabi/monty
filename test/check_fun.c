@@ -12,30 +12,43 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 {
 	instruction_t fun_table[] = {
 		{"push", push},
+		{"nop", nop},
 		{"pop", pop},
 		{"pall", pall},
 		{"pint", pint},
+		{"swap", swap},
 		{NULL, NULL}
 	};
-	int i;
+	int i, sign = 1;
 
+	if (arg2[0] == '-')
+	{
+		sign = -1;
+		arg2++;
+	}
 	for (i = 0; fun_table[i].opcode; i++)
 	{
 		if (!strcmp(fun_table[i].opcode, arg1))
 		{
-			if (i >= 1)
+			if (i > 1)
 			{
-				if (arg2 == NULL || sizeof(arg2) == 0)
+				if (arg2 == NULL || strlen(arg2) == 0)
 				{
 					fun_table[i].f(top, line_number);
 					return (1);
 				}
 				return (0);
 			}
+			else if (i == 1)
+				return (1);
 			else if (arg2 == NULL || !_isdigit(arg2))
-				break;
+			{
+				while (*top)
+					pop(top, line_number);
+				push_error(line_number);
+			}
 			fun_table[i].f(top, line_number);
-			(*top)->n = atoi(arg2);
+			(*top)->n = atoi(arg2) * sign;
 			return (1);
 
 		}

@@ -19,7 +19,7 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 		{"swap", swap},
 		{NULL, NULL}
 	};
-	int i;
+	int i, sign = 1;
 
 	for (i = 0; fun_table[i].opcode; i++)
 	{
@@ -36,14 +36,24 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 			}
 			else if (i == 1)
 				return (1);
-			else if (arg2 == NULL || !_isdigit(arg2))
+			else if (arg2 == NULL || !_isdigit(arg2+1) || (arg2[0] != '-' && (arg2[0] > '9') && (arg2[0] < '0')))
 			{
 				while (*top)
 					pop(top, line_number);
 				push_error(line_number);
 			}
 			fun_table[i].f(top, line_number);
-			(*top)->n = atoi(arg2);
+			if (sign == -1)
+				(*top)->n = -1 * atoi(arg2);
+			else
+			{
+				if (arg2[0] == '-')
+				{
+					sign = -1;
+					arg2 = &arg2[1];
+				}
+				(*top)->n = sign * atoi(arg2);
+			}
 			return (1);
 
 		}
