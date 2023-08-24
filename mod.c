@@ -19,9 +19,9 @@ void mod(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	if (((*top)->next->n) < 0 && ((*top)->n) < 0)
-		(*top)->next->n = (-1 * ((*top)->next->n)) % (-1 *((*top)->n));
+		(*top)->next->n = (-1 * ((*top)->next->n)) % (-1 * ((*top)->n));
 	else if (((*top)->next->n) >= 0 && ((*top)->n) < 0)
-		(*top)->next->n = ((*top)->next->n) % (-1 *((*top)->n));
+		(*top)->next->n = ((*top)->next->n) % (-1 * ((*top)->n));
 	else if (((*top)->next->n) < 0 && ((*top)->n) > 0)
 		(*top)->next->n = (-1 * (*top)->next->n) % ((*top)->n);
 	else
