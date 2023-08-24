@@ -19,6 +19,6 @@ void divs(stack_t **top, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	(*top)->next->n = (*top)->n / (*top)->next->n;
+	(*top)->next->n = (*top)->next->n / (*top)->n;
 	pop(top, line_number);
 }
