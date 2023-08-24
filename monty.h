@@ -43,5 +43,6 @@ int check_fun(stack_t **, char *, char *, unsigned int);
 int _isdigit(char *);
 void push_error(unsigned int count_line);
 void swap(stack_t **top, unsigned int line_number);
+void nop(stack_t **top, unsigned int line_number);
 
 #endif /* MONTY_H */

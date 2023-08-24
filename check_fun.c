@@ -12,6 +12,7 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 {
 	instruction_t fun_table[] = {
 		{"push", push},
+		{"nop", nop},
 		{"pop", pop},
 		{"pall", pall},
 		{"pint", pint},
@@ -24,7 +25,7 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 	{
 		if (!strcmp(fun_table[i].opcode, arg1))
 		{
-			if (i >= 1)
+			if (i > 1)
 			{
 				if (arg2 == NULL || strlen(arg2) == 0)
 				{
@@ -33,6 +34,8 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 				}
 				return (0);
 			}
+			else if (i == 1)
+				return (1);
 			else if (arg2 == NULL || !_isdigit(arg2))
 			{
 				while (*top)
