@@ -21,9 +21,9 @@ void mod(stack_t **top, unsigned int line_number)
 	if (((*top)->next->n) < 0 && ((*top)->n) < 0)
 		(*top)->next->n = (-1 * ((*top)->next->n)) % (-1 *((*top)->n));
 	else if (((*top)->next->n) >= 0 && ((*top)->n) < 0)
-		(*top)->next->n = 0 - ((*top)->next->n) % (-1 *((*top)->n));
+		(*top)->next->n = ((*top)->next->n) % (-1 *((*top)->n));
 	else if (((*top)->next->n) < 0 && ((*top)->n) > 0)
-		(*top)->next->n = 0 - (-1 * (*top)->next->n) % ((*top)->n);
+		(*top)->next->n = (-1 * (*top)->next->n) % ((*top)->n);
 	else
 		(*top)->next->n = (*top)->next->n % (*top)->n;
 	pop(top, line_number);
