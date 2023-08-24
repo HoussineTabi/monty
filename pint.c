@@ -18,6 +18,7 @@ void pint(stack_t **top, unsigned int line_number)
 		write(2, ": can't pint, stack empty", strlen(": can't pint, stack empty"));
 		while (*top)
 			pop(top, line_number);
+		fclose(fil.file);
 		exit(EXIT_FAILURE);
 	}
 }

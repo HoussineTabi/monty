@@ -16,6 +16,7 @@ void pop(stack_t **top, unsigned int line_number)
 		write(2, "L", strlen("L"));
 		write(2, str_n_of_line, strlen(str_n_of_line));
 		write(2, str, strlen(str));
+		fclose(fil.file);
 		exit(EXIT_FAILURE);
 	}
 	else

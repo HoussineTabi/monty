@@ -1,6 +1,6 @@
 #include "monty.h"
-#include <unistd.h>
-#include <stdio.h>
+
+file_t fil = {NULL};
 /**
  *open_file - this function open a file
  *@str: parameter pointer
@@ -76,6 +76,7 @@ int main(int ac, char **arv)
 	if (ac != 2)
 		error_n_arguments();
 	file = open_file(arv[1], "r");
+	fil.file = file;
 	while (fgets(buffer_file, size, file) != NULL)
 	{
 		count_line++;
