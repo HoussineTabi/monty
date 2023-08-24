@@ -15,6 +15,7 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 		{"pop", pop},
 		{"pall", pall},
 		{"pint", pint},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 	int i;
