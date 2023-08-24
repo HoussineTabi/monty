@@ -65,7 +65,7 @@ int main(int ac, char **arv)
 		if (buffer_file[0] == '\n')
 			continue;
 		arg1 = strtok(buffer_file, " \t\n");
-		if (arg1 == NULL)
+		if (arg1 == NULL || arg1[0] == '#')
 			continue;
 		arg2 = strtok(NULL, " \t\n");
 		if (!check_fun(&top, arg1, arg2, count_line))

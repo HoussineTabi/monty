@@ -3,7 +3,7 @@ push 1
 
 push 3
 
-pint
+#pint
 push 2
 pint
 push 1
