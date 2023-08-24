@@ -7,7 +7,7 @@
 void pop(stack_t **top, unsigned int line_number)
 {
 	stack_t *node = NULL;
-	char str = ": can't pop an empty stack\n";
+	char *str = ": can't pop an empty stack\n";
 	char str_n_of_line[20];
 
 	if (!top || *top == NULL)
