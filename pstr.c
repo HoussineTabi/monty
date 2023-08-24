@@ -11,10 +11,10 @@ void pstr(stack_t **top, unsigned int line_number)
 	(void)line_number;
 	while (head)
 	{
-		if (head->n == 0)
-			break;
 		if (head->n > 0 && head->n <= 127)
 			putchar(head->n);
+		else
+			break;
 		head = head->next;
 	}
 	putchar('\n');
