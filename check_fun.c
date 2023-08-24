@@ -12,7 +12,8 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 {
 	instruction_t fun_table[] = {
 		{"push", push}, {"nop", nop}, {"pop", pop}, {"add", add}, {"sub", sub},
-		{"pall", pall}, {"pint", pint}, {"swap", swap}, {NULL, NULL}, {"div", divs}
+		{"pall", pall}, {"pint", pint}, {"swap", swap}, {NULL, NULL}, {"div", divs},
+		{"mul", mul}
 	};
 	int i, sign = 1;
 
