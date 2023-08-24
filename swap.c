@@ -8,15 +8,11 @@
 void swap(stack_t **top, unsigned int line_number)
 {
 	stack_t *tmp = NULL;
-	char *str1 = ": can't swap, stack too short\n";
-	char str_n_of_line[20];
 
 	if (!top || *top == NULL || (*top)->next == NULL)
 	{
-		sprintf(str_n_of_line, "%u", line_number);
-		write(2, "L", strlen("L"));
-		write(2, str_n_of_line, strlen(str_n_of_line));
-		write(2, str1, strlen(str1));
+
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}

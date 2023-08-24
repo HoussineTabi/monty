@@ -14,7 +14,7 @@ void push(stack_t **top, unsigned int line_number)
 	{
 		while (*top)
 			pop(top, line_number);
-		write(2, "Error: malloc failed\n", strlen("Error: malloc failed\n"));
+		fprintf(stderr, "Error: malloc failed\n");
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}

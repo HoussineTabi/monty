@@ -12,9 +12,7 @@ FILE *open_file(char *str, char *mod)
 
 	if (file == NULL)
 	{
-		write(2, "Error: Can't open file ", strlen("Error: Can't open file "));
-		write(2, str, strlen(str));
-		write(2, "\n", strlen("\n"));
+		fprintf(stderr, "Error: Can't open file %s\n", str);
 		exit(EXIT_FAILURE);
 	}
 	return (file);
@@ -26,15 +24,7 @@ FILE *open_file(char *str, char *mod)
  */
 void regular_errror(unsigned int count_line, char *line)
 {
-	char str_n_of_line[20];
-
-	sprintf(str_n_of_line, "%u", count_line);
-	(void)count_line;
-	write(2, "L", strlen("L"));
-	write(2, str_n_of_line, strlen(str_n_of_line));
-	write(2, ": unknown instruction", strlen(": unknown instruction"));
-	write(2, line, strlen(line));
-	write(2, "\n", strlen("\n"));
+	fprintf(stderr, "L%u: unknown instruction %s\n", count_line, line);
 }
 /**
  *push_error - this function print an error
@@ -42,12 +32,7 @@ void regular_errror(unsigned int count_line, char *line)
  */
 void push_error(unsigned int count_line)
 {
-	char str_n_of_line[20];
-
-	sprintf(str_n_of_line, "%u", count_line);
-	write(2, "L", 1);
-	write(2, str_n_of_line, strlen(str_n_of_line));
-	write(2, ": usage: push integer\n", strlen(": usage: push integer\n"));
+	fprintf(stderr, "L%u: usage: push integer\n", count_line);
 	exit(EXIT_FAILURE);
 }
 /**
@@ -55,7 +40,7 @@ void push_error(unsigned int count_line)
  */
 void error_n_arguments(void)
 {
-	write(2, "USAGE: monty file\n", strlen("USAGE: monty file\n"));
+	fprintf(stderr, "USAGE: monty file\n");
 	exit(EXIT_FAILURE);
 }
 /**
