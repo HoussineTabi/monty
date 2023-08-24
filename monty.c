@@ -81,10 +81,10 @@ int main(int ac, char **arv)
 		count_line++;
 		if (buffer_file[0] == '\n')
 			continue;
-		arg1 = strtok(buffer_file, " \n");
+		arg1 = strtok(buffer_file, " \t\n");
 		if (arg1 == NULL)
 			continue;
-		arg2 = strtok(NULL, " \n");
+		arg2 = strtok(NULL, " \t\n");
 		if (!check_fun(&top, arg1, arg2, count_line))
 		{
 			regular_errror(count_line, arg1);
