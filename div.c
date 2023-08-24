@@ -14,7 +14,7 @@ void divs(stack_t **top, unsigned int line_number)
 	}
 	if ((*top)->next == 0)
 	{
-		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%u: division by zero\n", line_number);
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
