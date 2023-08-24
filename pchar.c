@@ -14,7 +14,7 @@ void pchar(stack_t **top, unsigned int line_number)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-	if (head->n >= 0 && head->n <= 126)
+	if (head->n >= 0 && head->n <= 127)
 	{
 		putchar(head->n);
 		putchar('\n');
