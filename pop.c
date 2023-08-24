@@ -7,9 +7,16 @@
 void pop(stack_t **top, unsigned int line_number)
 {
 	stack_t *node = NULL;
+	char str_n_of_line[20];
 
 	if (!top || *top == NULL)
-		perror("emptystack");
+	{
+		sprintf(str_n_of_line, "%u", line_number);
+		write(2, "L", strlen("L"));
+		write(2, str_n_of_line, strlen(str_n_of_line));
+		write(2, ": can't pop an empty stack\n", strlen(": can't pop an empty stack\n"));
+		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		line_number--;
