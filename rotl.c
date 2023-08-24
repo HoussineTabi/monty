@@ -13,12 +13,10 @@ void rotl(stack_t **top, unsigned int line_number)
 		return;
 	(void)line_number;
 	n = head->n;
-	while (head->next && head)
+	while (head->next)
 	{
-		printf("%d\n", head->n);
+		head->n = head->next->n;
 		head = head->next;
 	}
-	(*top)->n = head->n;
 	head->n = n;
-
 }
