@@ -1,5 +1,11 @@
 #include "monty.h"
 
+instruction_t fun_table[] = {
+{"push", push}, {"nop", nop}, {"pop", pop}, {"add", add}, {"sub", sub},
+{"pall", pall}, {"pint", pint}, {"swap", swap}, {"div", divs}, {"rotl", rotl}
+, {"mul", mul}, {"mod", mod}, {"pchar", pchar}, {"pstr", pstr}, {"rotr", rotr}
+, {NULL, NULL}
+};
 /**
  * check_fun - check of the firs argument is a function
  * @top: pointer to the top of the stack
@@ -10,11 +16,6 @@
  */
 int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 {
-	instruction_t fun_table[] = {
-		{"push", push}, {"nop", nop}, {"pop", pop}, {"add", add}, {"sub", sub},
-		{"pall", pall}, {"pint", pint}, {"swap", swap}, {"div", divs},
-		{"mul", mul}, {"mod", mod}, {NULL, NULL}
-	};
 	int i, sign = 1;
 
 	for (i = 0; fun_table[i].opcode; i++)
@@ -39,6 +40,8 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 			fun_table[i].f(top, line_number);
 			if (sign == -1 && arg2[0] == '-')
 				(*top)->n = -1 * atoi(arg2), sign = -1, arg2 = &arg2[1];
+			if (strlen(arg2) > strlen("2147483647"))
+				push_error(line_number);
 			(*top)->n = sign * atoi(arg2);
 			return (1);
 		}

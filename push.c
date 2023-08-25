@@ -18,7 +18,17 @@ void push(stack_t **top, unsigned int line_number)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-	node->prev = NULL;
-	node->next = *top;
-	*top = node;
+	if (*top == NULL)
+	{
+		node->prev = NULL;
+		node->next = *top;
+		*top = node;
+	}
+	else
+	{
+		node->prev = NULL;
+		node->next = *top;
+		(*top)->prev = node;
+		(*top) = node;
+	}
 }

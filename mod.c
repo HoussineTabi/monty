@@ -18,7 +18,13 @@ void mod(stack_t **top, unsigned int line_number)
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-
-	(*top)->next->n = ((*top)->next->n) % ((*top)->n);
+	if (((*top)->next->n) < 0 && ((*top)->n) < 0)
+		(*top)->next->n = (-1 * ((*top)->next->n)) % (-1 * ((*top)->n));
+	else if (((*top)->next->n) >= 0 && ((*top)->n) < 0)
+		(*top)->next->n = ((*top)->next->n) % (-1 * ((*top)->n));
+	else if (((*top)->next->n) < 0 && ((*top)->n) > 0)
+		(*top)->next->n = (-1 * (*top)->next->n) % ((*top)->n);
+	else
+		(*top)->next->n = (*top)->next->n % (*top)->n;
 	pop(top, line_number);
 }
