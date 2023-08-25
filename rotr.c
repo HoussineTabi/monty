@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * rotl - prints the element of a stack
+ * rotr - rotation right of the element of a stack
  * @top: the top of the stack
  * @line_number: the number of the line
  */

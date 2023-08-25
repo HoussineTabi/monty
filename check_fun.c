@@ -24,10 +24,10 @@ int check_fun(stack_t **top, char *arg1, char *arg2, unsigned int line_number)
 		{
 			if (i > 1)
 			{
-					fun_table[i].f(top, line_number);
-					return (1);
+				fun_table[i].f(top, line_number);
+				return (1);
 			}
-			else if (i == 1)
+			if (i == 1)
 				return (1);
 			else if (arg2 == NULL || !_isdigit(arg2 + 1)
 				       || (arg2[0] != '-' && (arg2[0] > '9')
